@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, except: [:edit]
   def show
     @books = Book.find(params[:id])
     @user = User.find(@books.user_id)
@@ -23,7 +24,20 @@ class BooksController < ApplicationController
   end 
 
   def edit
+    @book = Book.find(params[:id])
   end
+  
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    redirect_to user_path(@book.user_id)
+  end 
+  
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to user_path(current_user)
+  end 
   
   private
   def book_params

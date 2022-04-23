@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: [:edit]
   def index
     @book = Book.new
     @user = current_user
