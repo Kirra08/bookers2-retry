@@ -12,12 +12,24 @@
           <th>image</th>
           <th>name</th>
           <th></th>
+          <th></th>
+          <th>フォロー数</th>
+          <th>フォロワー数</th>
         </tr>
         <tr>
           <% @users.each do |user| %>
             <td><%= image_tag user.get_profile_image(100,100) %></td>
             <td><%= user.name %></td>
             <td><%= link_to "Show", user_path(user) %></td>
+            <td>
+              <%= render "relationships/follow_btn", user: user %>
+            </td>
+            <td>
+              <%= link_to user.followings.count, user_followings_path(user) %>
+            </td>
+            <td>
+              <%= link_to user.followers.count, user_followers_path(user) %>
+            </td>
         </tr>
           <% end %>
       </table>
