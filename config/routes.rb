@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'group_mails/new'
+  get 'group_mails/index'
+  get 'group_mails/edit'
   get 'relationships/followings'
   get 'relationships/followers'
   root to: 'homes#top'
@@ -18,6 +21,8 @@ Rails.application.routes.draw do
   
   resources :groups, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :group_users, only: [:new, :create, :destroy]
+    resources :group_mails, only: [:new, :create, :edit, :update, :destroy, :index]
   end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

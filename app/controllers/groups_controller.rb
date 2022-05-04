@@ -21,6 +21,7 @@ class GroupsController < ApplicationController
     @user = current_user
     @book = Book.new
     @group = Group.find(params[:id])
+    @group_mail = GroupMail.new
   end
 
   def edit

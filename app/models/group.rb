@@ -10,6 +10,8 @@ class Group < ApplicationRecord
   
   has_many :users, through: :group_users, source: :user
   
+  has_many :group_mails, dependent: :destroy
+  
   validates :name,length: {in: 2...21},  uniqueness: true
   validates :introduction, length: {maximum:50}
    
