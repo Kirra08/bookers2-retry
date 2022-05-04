@@ -13,6 +13,11 @@
             <td><%= image_tag @group.get_image, size: '100x100' %></td>
             <td><%= @group.name %></td>
             <td><%= @group.introduction %></td>
+             <td>
+              <% @group.users.each do |user| %>
+               <li style="list-style: none;"><%= user.name %></li>
+              <% end %>
+              </td>
             <% unless @group.belongs?(current_user) %>
               <td><%= link_to "Join this group", group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %></td>
             <% else %>
