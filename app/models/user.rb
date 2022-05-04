@@ -13,9 +13,11 @@ class User < ApplicationRecord
    has_many :followings, through: :relationships, source: :followed
    has_many :followers, through: :reverse_of_relationships, source: :follower
    
-   has_many :groups, through: :group_users
-   has_many :group_users
-   has_many :owners, class_name: 'Group', foreign_key: 'owner_id', dependent: :destroy
+   #has_many :group_users
+   #has_many :groups, through: :group_users
+   #has_many :owners, class_name: 'Group', foreign_key: 'owner_id', dependent: :destroy
+   
+   has_many :group_users, dependent: :destroy
    
    validates :name,length: {in: 2...21},  uniqueness: true
    validates :introduction, length: {maximum:50}

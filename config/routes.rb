@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end 
   
-  resources :groups, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :groups, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    resources :group_users, only: [:new, :create, :destroy]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
