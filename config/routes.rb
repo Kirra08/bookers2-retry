@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  get 'group_mails/new'
-  get 'group_mails/index'
-  get 'group_mails/edit'
   get 'relationships/followings'
   get 'relationships/followers'
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   get 'search' => 'searches#search'
+  get 'groups/create_event'
+  get 'group_mails/user_mail'
   devise_for :users
   
   resources :users, only: [:index, :show, :edit, :update] do

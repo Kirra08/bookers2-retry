@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <h2>Event List</h2>
+      <span><%= link_to "Back", groups_path %></span>
+      <table class="table">
+        <thead>
+          <th>件名</th>
+          <th>本文</th>
+        </thead>
+        <% @group_mails.each do |mail| %>
+          <tbody>
+            <td>
+              <%= mail.title %>
+            </td>
+            <td>
+              <%= mail.body %>
+            </td>
+            <td>
+              <% if @group.owner_id == current_user.id %>
+                <%= link_to "Destroy", group_group_mail_path(@group,mail), method: :delete %>
+              <% end %>
+            </td>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

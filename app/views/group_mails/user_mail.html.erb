@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-5 mx-auto">
+      <h2>Mails</h2>
+      <%= link_to "Back", users_path %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>件名</th>
+            <th>本文</th>
+          </tr>
+        </thead>
+        <% @groups.each do |group| %>
+          <% if group.belongs?(current_user) %>
+            <% group.group_mails.each do |mail| %>
+            <tbody>
+              <tr>
+                <td><%= mail.title %></td>
+                <td><%= mail.body %></td>
+              </tr>
+            </tbody>
+            <% end %>
+          <% end %>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2022_05_04_051538) do
 
   create_table "group_mails", force: :cascade do |t|
     t.integer "group_id"
-    t.integer "user_id"
     t.string "title"
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
