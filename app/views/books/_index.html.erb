@@ -3,7 +3,9 @@
     <td><%= link_to (image_tag book.user.get_profile_image(50,50)), user_path(book.user_id) %></td>
     <td><%= link_to book.title, book_path(book) %></td>
     <td><%= book.body %></td>
-    <td><%= book.tag %></td>
+    <td>
+      <li style="list-style: none;"><%= link_to book.tag, search_tag_path(word: book.tag) %></li>
+    </td>
     <td><%= link_to "#{book.book_comments.count}Comments", book_path(book) %></td>
     <td><%= render 'books/star', book: book %></td>
     <td class="favorite-btn-<%= book.id %>">
