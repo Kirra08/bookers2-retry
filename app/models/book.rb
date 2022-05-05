@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   validates :title, presence: true
+  validates :star, presence: true
   validates :body, length: {in: 2...201}
   
   def favorited_by?(user)

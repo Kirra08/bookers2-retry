@@ -20,6 +20,9 @@
           <label>Opinion</label>
           <%= f.text_area :body,class: "form-control book-body" %>
         </div>
+        <div class="mb-2">
+          <%= render 'star', book: @book %>
+        </div>
         
         <div class="form-group">
           <input type="submit" name="commit" value="Update Book" class="btn btn-success" >
