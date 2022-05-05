@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'search' => 'searches#search'
   get 'groups/create_event'
   get 'group_mails/user_mail'
+  get 'books/new_index'
+  get 'books/star_index'
   devise_for :users
   
   resources :users, only: [:index, :show, :edit, :update] do

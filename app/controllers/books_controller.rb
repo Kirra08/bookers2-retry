@@ -54,6 +54,18 @@ class BooksController < ApplicationController
     redirect_to books_path
   end 
   
+  def new_index
+    @new_index = Book.all.order(created_at: :desc)
+    @user = current_user
+    @book = Book.new
+  end 
+  
+  def star_index
+    @star_index = Book.all.order(star: :desc)
+    @user = current_user
+    @book = Book.new
+  end 
+  
   private
   def book_params
     params.require(:book).permit(:title,:body, :star)
