@@ -4,6 +4,7 @@ class Book < ApplicationRecord
   has_many :favorites, dependent: :destroy
   
   validates :title, presence: true
+  validates :tag, presence: true
   validates :star, presence: true
   validates :body, length: {in: 2...201}
   
@@ -23,5 +24,9 @@ class Book < ApplicationRecord
     else
      @book = Book.all
     end 
+  end 
+  
+  def self.looks_tag(word)
+     @book = Book.where("tag LIKE?", "#{word}")
   end 
 end

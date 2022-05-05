@@ -10,4 +10,10 @@ class SearchesController < ApplicationController
       @books = Book.looks(params[:search], params[:word])
     end 
   end 
+  
+  def search_tag
+    @books = Book.looks_tag(params[:word])
+    @user = current_user
+    @book = Book.new
+  end 
 end

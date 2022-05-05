@@ -66,8 +66,11 @@ class BooksController < ApplicationController
     @book = Book.new
   end 
   
+  def serch_result
+  end 
+  
   private
   def book_params
-    params.require(:book).permit(:title,:body, :star)
+    params.require(:book).permit(:title,:body, :star, :tag)
   end 
 end

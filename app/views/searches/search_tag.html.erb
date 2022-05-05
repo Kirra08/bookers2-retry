@@ -3,12 +3,11 @@
     <div class="row">
       <div class="col-md-3">
         <%= render 'users/user_info', user: @user %>
-        <%= render 'form', book: @book %>
+        <%= render 'books/form', book: @book %>
       </div>
-      
-      <div class="col-md-8 offset-md-1">
+       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
-        <%= render 'index_form' %>
+        <%= render 'books/index_form' %>
         <div class="index">
           <table class="table">
           <tr>
@@ -19,7 +18,7 @@
             <th>Comments</th>
             <th>Rate</th>
             </tr>
-            <%= render 'index', books: @books %>
+            <%= render 'books/index', books: @books %>
           </table>
         </div>
       </div>
