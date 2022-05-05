@@ -35,9 +35,13 @@
                   <td><%= link_to "Event List",group_group_mails_path(@group), class: "btn btn-sm btn-info" %></td>
                 <% else %>
                   <% unless @group.belongs?(current_user) %>
-                    <td><%= link_to "Join this group", group_group_users_path(@group), method: :post, class: "btn btn-sm btn-success" %></td>
+                    <td class="join-btn">
+                      <%= render "group_users/join-btn", group: @group %>
+                    </td>
                   <% else %>
-                    <td><%= link_to "Leave this group", group_group_user_path(@group), method: :delete, class: "btn btn-sm btn-danger" %></td>
+                    <td class="leave-btn">
+                      <%= render "group_users/leave-btn", group: @group %>
+                    </td>
                   <% end %>
               <% end %>
               

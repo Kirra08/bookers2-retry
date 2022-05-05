@@ -8,19 +8,17 @@ class GroupUsersController < ApplicationController
   #group_user = GroupUser.new
   #group_user.user_id = current_user.id
   #group_user.group_id = Group.find(params[:group_id])
-  group = Group.find(params[:group_id])
-  group_user = current_user.group_users.new(group_id: group.id)
+  @group = Group.find(params[:group_id])
+  group_user = current_user.group_users.new(group_id: @group.id)
   group_user.save
   #binding.pry
-  redirect_to request.referer
  end 
  
  def destroy
-  group = Group.find(params[:group_id])
-  group_user = current_user.group_users.find_by(group_id: group.id)
+  @group = Group.find(params[:group_id])
+  group_user = current_user.group_users.find_by(group_id: @group.id)
   group_user.destroy
   #binding.pry
-  redirect_to request.referer
  end 
 
 end
