@@ -11,7 +11,9 @@ class BooksController < ApplicationController
   def index
     @user = current_user
     @book = Book.new
-    @books = Book.all
+    #@books = Book.includes(:favorites).sort {|a,b| b.favorites.size <=> a.favorites.size}
+    @books = Book.find(Favorite.group(:book_id).where(created_at: Time.current.all_week).order('count(book_id) desc').pluck(:book_id))
+    @zero_books = Book.where()
   end
   
   def new
