@@ -13,6 +13,13 @@ class User < ApplicationRecord
    has_many :followings, through: :relationships, source: :followed
    has_many :followers, through: :reverse_of_relationships, source: :follower
    
+   has_many :posts, dependent: :destroy
+   has_many :sends, dependent: :destroy
+   
+   has_many :user_rooms
+   has_many :chats
+   has_many :rooms, through: :user_rooms
+   
    #has_many :group_users
    #has_many :groups, through: :group_users
    #has_many :owners, class_name: 'Group', foreign_key: 'owner_id', dependent: :destroy
