@@ -8,6 +8,8 @@ class Book < ApplicationRecord
   validates :star, presence: true
   validates :body, length: {in: 2...201}
   
+  is_impressionable counter_cache: true
+  
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end 

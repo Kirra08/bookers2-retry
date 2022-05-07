@@ -11,7 +11,8 @@
         <tr>
           <td>
             <%= link_to (image_tag @user.get_profile_image(50,50)), user_path(@books.user_id) %><br>
-            <%= link_to @books.user.name, user_path(@books.user.id) %>
+            <%= link_to @books.user.name, user_path(@books.user.id) %><br>
+            閲覧数:<%= @books.impressions_count %>
           </td>
           <td>
             <%= @books.title %>
