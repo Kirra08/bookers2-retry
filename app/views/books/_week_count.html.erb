@@ -1,0 +1,22 @@
+<h2>７日分の投稿数</h2>
+          <table border="1">
+            <tr>
+              <th width="150">6日前</th>
+              <th width="150">5日前</th>
+              <th width="150">4日前</th>
+              <th width="150">3日前</th>
+              <th width="150">2日前</th>
+              <th width="150">1日前</th>
+              <th width="150">今日</th>
+            </tr>
+            <tr>
+              <td><%= day6.count %></td>
+              <td><%= day5.count %></td>
+              <td><%= day4.count %></td>
+              <td><%= day3.count %></td>
+              <td><%= day2.count %></td>
+              <td><%= last.count %></td>
+              <td><%= now.count %></td>
+            </tr>
+          </table>
+          <%= line_chart data, width: "700px", height: "500px", ytitle: "投稿数", xtitle: "日付" %>

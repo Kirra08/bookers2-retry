@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'direct_messages/messages'
-  get 'relationships/followings'
-  get 'relationships/followers'
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   get 'search' => 'searches#search'

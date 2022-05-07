@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user!
+  require "date"
   
   def show
     @books = Book.find(params[:id])
@@ -10,6 +11,7 @@ class BooksController < ApplicationController
   end
 
   def index
+    now = Date.today
     @user = current_user
     @book = Book.new
     @books_all = Book.all
@@ -17,10 +19,17 @@ class BooksController < ApplicationController
     @books = Book.find(Favorite.group(:book_id).where(created_at: Time.current.all_week).order('count(book_id) desc').pluck(:book_id))
     @zero_books = Book.where()
     
-    @books_today = @books_all.created_today
-    @books_yesterday = @books_all.created_yesterday
-    @books_week = @books_all.created_week
-    @books_last_week = @books_all.created_last_week
+    @books_today = @books_all.created_today#今日
+    @books_yesterday = @books_all.created_yesterday#昨日
+    @books_2_days_ago = @books_all.created_2day_ago
+    @books_3_days_ago = @books_all.created_3day_ago
+    @books_4_days_ago = @books_all.created_4day_ago
+    @books_5_days_ago = @books_all.created_5day_ago
+    @books_6_days_ago = @books_all.created_6day_ago
+    @books_week = @books_all.created_week#今週
+    @books_last_week = @books_all.created_last_week#先週
+    @data = [[now, @books_today.count],[now.yesterday,@books_yesterday.count],[now.ago(2.days),@books_2_days_ago.count],
+            [now.ago(3.days),@books_3_days_ago.count],[now.ago(4.days),@books_4_days_ago.count],[now.ago(5.days),@books_5_days_ago.count],[now.ago(6.days),@books_6_days_ago.count]]
   end
   
   def new
