@@ -19,4 +19,4 @@
               <td><%= now.count %></td>
             </tr>
           </table>
-          <%= line_chart data, width: "700px", height: "500px", ytitle: "投稿数", xtitle: "日付" %>
+          <%= line_chart data, width: "700px", height: "500px", min: 0, max: 10, title: "7日間の投稿数の比較" %>

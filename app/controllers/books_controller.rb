@@ -28,8 +28,8 @@ class BooksController < ApplicationController
     @books_6_days_ago = @books_all.created_6day_ago
     @books_week = @books_all.created_week#今週
     @books_last_week = @books_all.created_last_week#先週
-    @data = [[now, @books_today.count],[now.yesterday,@books_yesterday.count],[now.ago(2.days),@books_2_days_ago.count],
-            [now.ago(3.days),@books_3_days_ago.count],[now.ago(4.days),@books_4_days_ago.count],[now.ago(5.days),@books_5_days_ago.count],[now.ago(6.days),@books_6_days_ago.count]]
+    @data = [["6日前",@books_6_days_ago.count],["5日前",@books_5_days_ago.count],["4日前",@books_4_days_ago.count],["3日前",@books_3_days_ago.count],
+            ["2日前",@books_2_days_ago.count],["1日前",@books_yesterday.count],["今日", @books_today.count]]
   end
   
   def new
