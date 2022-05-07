@@ -1,0 +1,14 @@
+<div.mb-5>
+ <tr>
+    <td height="40"><%= now.count %></td>
+    <% if last.count == 0 %>
+      <td>投稿はなし</td>
+    <% else %>
+      <td><%= last.count %></td>
+      <td>
+        <% a = now.count / last.count.to_f %>
+        <%= (a * 100).round %>%
+      </td>
+    <% end %>
+  </tr>
+</div>

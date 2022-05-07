@@ -21,6 +21,24 @@
             </tr>
             <%= render 'index', books: @books %>
           </table>
+          <h2>投稿数の前日比・先週比</h2>
+          <table border="1">
+            <tr>
+              <th width="200", height="50">今日の投稿数</th>
+              <th width="200">前日の投稿数</th>
+              <th width="150">前日比</th>
+            </tr>
+            <%= render 'books/post_list', now: @books_today, last: @books_yesterday %>
+          </table>
+          
+          <table border="1">
+            <tr>
+              <th width="200", height="50">今週の投稿数</th>
+              <th width="200">先週の投稿数</th>
+              <th width="150">先週比</th>
+            </tr>
+            <%= render 'books/post_list', now: @books_week, last: @books_last_week %>
+          </table>
         </div>
       </div>
     </div>
