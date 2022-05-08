@@ -14,7 +14,7 @@ Rails.application.routes.draw do
      resource :relationships, only: [:create, :destroy]
      get 'followings' => 'relationships#followings', as: 'followings'
      get 'followers' => 'relationships#followers', as: 'followers'
-     get "users/search_books"
+     get "daily_posts" => "users#daily_posts"
   end 
   resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :book_comments, only: [:create, :destroy]
